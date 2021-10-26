@@ -2,8 +2,8 @@ import React from 'react';
 
 import BasicButton from './UI/button/BasicButton.jsx';
 
-const Post = ({number, ...props}) => {
-  const {title, body} = props.post;
+const Post = ({number, removePost, post}) => {
+  const {id, title, body} = post;
 
   return (
     <div className="post">
@@ -12,7 +12,7 @@ const Post = ({number, ...props}) => {
         <div>{body}</div>
       </div>
       <div className="post__btns">
-      <BasicButton disabled>Удалить пост</BasicButton>
+      <BasicButton onClick={() => removePost(post)}>Удалить пост</BasicButton>
       </div>
     </div>
   );
