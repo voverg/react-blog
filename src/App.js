@@ -21,14 +21,19 @@ const App = () => {
     setPosts(posts.filter(item => item.id !== post.id));
   }
 
+  const postList = posts.length !== 0
+                  ? <PostList posts={posts} title="Список постов 1" removePost={removePost} />
+                  : <h1 className="post-list__header">Список постов пуст</h1>
+
   return (
     <div className="App">
       <PostForm createPost={createPost} />
-      <PostList
+      {postList}
+{/*      <PostList
         posts={posts}
         title="Список постов 1"
         removePost={removePost}
-      />
+      />*/}
     </div>
   );
 }
