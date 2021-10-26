@@ -3,7 +3,7 @@ import React from 'react';
 import BasicButton from './UI/button/BasicButton.jsx';
 
 const Post = ({number, removePost, post}) => {
-  const {id, title, body} = post;
+  const {title, body} = post;
 
   return (
     <div className="post">
