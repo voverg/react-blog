@@ -1,1 +1,4 @@
-.basicSelect {}
+.basicSelect {
+  padding: 5px;
+  border-radius: var(--radius);
+}

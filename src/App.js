@@ -9,8 +9,8 @@ import './styles/App.css';
 const App = () => {
   const [posts, setPosts] = useState([
     {id: 1, title: ' post', body: 'This is a first post'},
-    {id: 2, title: ' post', body: 'This is a second post'},
-    {id: 3, title: ' post', body: 'This is a third post'},
+    {id: 2, title: ' article', body: 'This is a second post'},
+    {id: 3, title: ' notice', body: 'This is a third post'},
   ]);
 
   const [selectedSort, setSelectedSort] = useState('');
@@ -20,14 +20,12 @@ const App = () => {
   };
 
   const removePost = (post) => {
-    console.log(post);
     setPosts(posts.filter(item => item.id !== post.id));
   }
 
   const sortPosts = (sortValue) => {
     setSelectedSort(sortValue);
     setPosts( [...posts].sort((a, b) => a[sortValue].localeCompare(b[sortValue])) );
-    console.log(posts);
   }
 
   const postList = posts.length !== 0
