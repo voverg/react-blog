@@ -1,5 +1,7 @@
 import React from 'react';
 
+import BasicButton from './UI/button/BasicButton.jsx';
+
 const Post = (props) => {
   const {title, body} = props.post;
 
@@ -10,7 +12,7 @@ const Post = (props) => {
         <div>{body}</div>
       </div>
       <div className="post__btns">
-        <button>Delete post</button>
+      <BasicButton disabled>Удалить пост</BasicButton>
       </div>
     </div>
   );

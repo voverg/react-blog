@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
 import PostList from './components/PostList.jsx';
+import BasicButton from './components/UI/button/BasicButton.jsx';
+import BasicInput from './components/UI/input/BasicInput.jsx';
 import './styles/App.css';
 
 function App() {
@@ -12,6 +14,11 @@ function App() {
 
   return (
     <div className="App">
+      <form>
+        <BasicInput type="text" placeholder="Введите название поста" />
+        <BasicInput type="text" placeholder="Введите описание поста" />
+        <BasicButton>Добавить пост</BasicButton>
+      </form>
       <PostList posts={posts} title="Список постов 1" />
     </div>
   );

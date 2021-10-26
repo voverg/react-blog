@@ -1,0 +1,15 @@
+.basicButton {
+  padding: 5px;
+  font-size: 14px;
+  color: var(--blue);
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: .3s ease-out;
+}
+
+.basicButton:hover {
+  background: var(--blue);
+  color: #fff;
+}
