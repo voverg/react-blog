@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
-import BasicSelect from './components/UI/select/BasicSelect.jsx';
+import BasicSelect from './components/UI/select';
 
 import './styles/App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([
-    // {id: 1, title: ' post', body: 'This is a first post'},
-    // {id: 2, title: ' article', body: 'This is a second post'},
-    // {id: 3, title: ' notice', body: 'This is a third post'},
+    {id: 1, title: ' post', body: 'This is a first post'},
+    {id: 2, title: ' article', body: 'This is a second post'},
+    {id: 3, title: ' notice', body: 'This is a third post'},
   ]);
 
   const [selectedSort, setSelectedSort] = useState('');
@@ -28,14 +28,11 @@ const App = () => {
     setPosts( [...posts].sort((a, b) => a[sortValue].localeCompare(b[sortValue])) );
   }
 
-  const postList = posts.length !== 0
-                  ? <PostList posts={posts} title="Список постов" removePost={removePost} />
-                  : <h1 className="post-list__header">Список постов пуст</h1>
-
   return (
     <div className="App">
       <PostForm createPost={createPost} />
       <hr />
+
       <BasicSelect
         defaultValue="Сортировка"
         value={selectedSort}
@@ -45,7 +42,12 @@ const App = () => {
           {value: 'body', name: 'По описанию'},
         ]}
       />
-      {postList}
+
+      <PostList
+        posts={posts}
+        title="Список постов"
+        removePost={removePost}
+      />
     </div>
   );
 }

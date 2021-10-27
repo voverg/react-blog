@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BasicButton from './UI/button/BasicButton.jsx';
+import BasicButton from './UI/button';
 
 const Post = ({number, removePost, post}) => {
   const {title, body} = post;
