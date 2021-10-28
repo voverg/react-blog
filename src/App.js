@@ -3,6 +3,8 @@ import React, {useState, useMemo} from 'react';
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
 import PostFilter from './components/PostFilter.jsx';
+import BasicButton from './components/UI/BasicButton';
+import BasicModal from './components/UI/BasicModal';
 
 import './styles/App.css';
 
@@ -14,8 +16,7 @@ const App = () => {
   ]);
 
   const [filter, setFilter] = useState({sort: '', query: ''});
-  // const [selectedSort, setSelectedSort] = useState('');
-  // const [searchQuery, setSearchQuery] = useState('');
+  const [modal, setModal] = useState(false);
 
   const getSortedPosts = () => {
     console.log('Отработала функция getSortedPosts');
@@ -34,20 +35,24 @@ const App = () => {
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
+    setModal(false);
   };
 
   const removePost = (post) => {
     setPosts(posts.filter(item => item.id !== post.id));
   }
 
-  // const sortPosts = (sortValue) => {
-  //   setSelectedSort(sortValue);
-  // }
-
   return (
     <div className="App">
-      <PostForm createPost={createPost} />
-      <hr />
+      <BasicButton
+        onClick={() => setModal(true)}
+      >
+        Создать пост
+      </BasicButton>
+
+      <BasicModal visible={modal} setVisible={setModal}>
+        <PostForm createPost={createPost} />
+      </BasicModal>
 
       <PostFilter
         filter={filter}
@@ -59,6 +64,7 @@ const App = () => {
         title="Список постов"
         removePost={removePost}
       />
+
     </div>
   );
 }
