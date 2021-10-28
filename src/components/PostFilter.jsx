@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BasicInput from './UI/input';
-import BasicSelect from './UI/select';
+import BasicInput from './UI/BasicInput';
+import BasicSelect from './UI/BasicSelect';
 
 const PostFilter = ({filter, setFilter}) => {
 

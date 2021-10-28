@@ -3,8 +3,6 @@ import React, {useState, useMemo} from 'react';
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
 import PostFilter from './components/PostFilter.jsx';
-// import BasicSelect from './components/UI/select';
-// import BasicInput from './components/UI/input';
 
 import './styles/App.css';
 
