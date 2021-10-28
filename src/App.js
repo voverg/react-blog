@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 import PostHeader from './components/PostHeader.jsx';
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
+import PostFooter from './components/PostFooter.jsx';
 
 import {usePosts} from './hooks/usePosts.js';
 import BasicModal from './components/UI/BasicModal';
+import BasicButton from './components/UI/BasicButton';
 
 import './styles/App.css';
 
@@ -29,11 +32,22 @@ const App = () => {
     setPosts(posts.filter(item => item.id !== post.id));
   }
 
+  async function fetchPosts() {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    console.log(response.data);
+  }
+
   return (
     <div className="App">
       <BasicModal visible={modal} setVisible={setModal}>
         <PostForm createPost={createPost} />
       </BasicModal>
+
+      <BasicButton
+        onClick={fetchPosts}
+      >
+        Сделать запрос на сервер
+      </BasicButton>
 
       <PostHeader
         filter={filter}
@@ -48,6 +62,8 @@ const App = () => {
         filter={filter}
         setFilter={setFilter}
       />
+
+      <PostFooter />
 
     </div>
   );
