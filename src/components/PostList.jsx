@@ -10,7 +10,7 @@ import PostSelect from './PostSelect.jsx';
 const PostList = ({posts, title, removePost, filter, setFilter}) => {
   if (!posts.length) {
     return (
-      <h2 className="post-list__title">Постов не найдено</h2>
+      <h2 className="post-list post-list__title">Постов не найдено</h2>
     );
   }
 
