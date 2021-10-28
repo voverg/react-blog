@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 
 import Post from './Post.jsx';
 
@@ -12,7 +16,18 @@ const PostList = ({posts, title, removePost}) => {
   return (
     <div className="post-list">
       <h1 className="post-list__header">{title}</h1>
-      { posts.map((post, index) => <Post number={index+1} post={post} key={post.id} removePost={removePost} />) }
+      <TransitionGroup>
+        {posts.map((post, index) =>
+          <CSSTransition
+            key={post.id}
+            timeout={500}
+            classNames="post"
+          >
+            <Post number={index+1} post={post} removePost={removePost} />
+          </CSSTransition>
+        )}
+      </TransitionGroup>
+
     </div>
   );
 
