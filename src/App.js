@@ -2,7 +2,10 @@ import React, {useState, useMemo} from 'react';
 
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
-import PostFilter from './components/PostFilter.jsx';
+import PostSearch from './components/PostSearch.jsx';
+import PostSelect from './components/PostSelect.jsx';
+
+import {usePosts} from './hooks/usePosts.js';
 import BasicButton from './components/UI/BasicButton';
 import BasicModal from './components/UI/BasicModal';
 
@@ -17,21 +20,7 @@ const App = () => {
 
   const [filter, setFilter] = useState({sort: '', query: ''});
   const [modal, setModal] = useState(false);
-
-  const getSortedPosts = () => {
-    console.log('Отработала функция getSortedPosts');
-    if (filter.sort) {
-      return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
-    } else {
-      return posts;
-    }
-  };
-
-  const sortedPosts = useMemo(getSortedPosts, [filter.sort, posts]);
-
-  const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()));
-  }, [filter.query, sortedPosts]);
+  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -44,20 +33,25 @@ const App = () => {
 
   return (
     <div className="App">
+      <BasicModal visible={modal} setVisible={setModal}>
+        <PostForm createPost={createPost} />
+      </BasicModal>
+
+      <PostSearch
+        filter={filter}
+        setFilter={setFilter}
+      />
+
+      <PostSelect
+        filter={filter}
+        setFilter={setFilter}
+      />
+
       <BasicButton
         onClick={() => setModal(true)}
       >
         Создать пост
       </BasicButton>
-
-      <BasicModal visible={modal} setVisible={setModal}>
-        <PostForm createPost={createPost} />
-      </BasicModal>
-
-      <PostFilter
-        filter={filter}
-        setFilter={setFilter}
-      />
 
       <PostList
         posts={sortedAndSearchedPosts}
