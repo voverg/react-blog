@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
-import BasicSelect from './components/UI/select';
+import PostFilter from './components/PostFilter.jsx';
+// import BasicSelect from './components/UI/select';
+// import BasicInput from './components/UI/input';
 
 import './styles/App.css';
 
@@ -13,7 +15,24 @@ const App = () => {
     {id: 3, title: ' notice', body: 'This is a third post'},
   ]);
 
-  const [selectedSort, setSelectedSort] = useState('');
+  const [filter, setFilter] = useState({sort: '', query: ''});
+  // const [selectedSort, setSelectedSort] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
+
+  const getSortedPosts = () => {
+    console.log('Отработала функция getSortedPosts');
+    if (filter.sort) {
+      return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
+    } else {
+      return posts;
+    }
+  };
+
+  const sortedPosts = useMemo(getSortedPosts, [filter.sort, posts]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()));
+  }, [filter.query, sortedPosts]);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -23,28 +42,22 @@ const App = () => {
     setPosts(posts.filter(item => item.id !== post.id));
   }
 
-  const sortPosts = (sortValue) => {
-    setSelectedSort(sortValue);
-    setPosts( [...posts].sort((a, b) => a[sortValue].localeCompare(b[sortValue])) );
-  }
+  // const sortPosts = (sortValue) => {
+  //   setSelectedSort(sortValue);
+  // }
 
   return (
     <div className="App">
       <PostForm createPost={createPost} />
       <hr />
 
-      <BasicSelect
-        defaultValue="Сортировка"
-        value={selectedSort}
-        sortPosts={sortPosts}
-        options={[
-          {value: 'title', name: 'По названию'},
-          {value: 'body', name: 'По описанию'},
-        ]}
+      <PostFilter
+        filter={filter}
+        setFilter={setFilter}
       />
 
       <PostList
-        posts={posts}
+        posts={sortedAndSearchedPosts}
         title="Список постов"
         removePost={removePost}
       />
