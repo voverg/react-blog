@@ -8,7 +8,7 @@ const Post = ({number, removePost, post}) => {
   return (
     <div className="post">
       <div className="post__content">
-        <h2>{number} {title}</h2>
+        <h3>{number} {title}</h3>
         <div>{body}</div>
       </div>
       <div className="post__btns">

@@ -5,17 +5,25 @@ import {
 } from 'react-transition-group';
 
 import Post from './Post.jsx';
+import PostSelect from './PostSelect.jsx';
 
-const PostList = ({posts, title, removePost}) => {
+const PostList = ({posts, title, removePost, filter, setFilter}) => {
   if (!posts.length) {
     return (
-      <h1 className="post-list__header">Постов не найдено</h1>
+      <h2 className="post-list__title">Постов не найдено</h2>
     );
   }
 
   return (
     <div className="post-list">
-      <h1 className="post-list__header">{title}</h1>
+      <div className="post-list__header">
+        <h2 className="post-list__title">{title}</h2>
+        <PostSelect
+          filter={filter}
+          setFilter={setFilter}
+        />
+      </div>
+
       <TransitionGroup>
         {posts.map((post, index) =>
           <CSSTransition

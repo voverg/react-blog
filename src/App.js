@@ -1,12 +1,10 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState} from 'react';
 
+import PostHeader from './components/PostHeader.jsx';
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
-import PostSearch from './components/PostSearch.jsx';
-import PostSelect from './components/PostSelect.jsx';
 
 import {usePosts} from './hooks/usePosts.js';
-import BasicButton from './components/UI/BasicButton';
 import BasicModal from './components/UI/BasicModal';
 
 import './styles/App.css';
@@ -37,26 +35,18 @@ const App = () => {
         <PostForm createPost={createPost} />
       </BasicModal>
 
-      <PostSearch
+      <PostHeader
         filter={filter}
         setFilter={setFilter}
+        setModal={setModal}
       />
-
-      <PostSelect
-        filter={filter}
-        setFilter={setFilter}
-      />
-
-      <BasicButton
-        onClick={() => setModal(true)}
-      >
-        Создать пост
-      </BasicButton>
 
       <PostList
         posts={sortedAndSearchedPosts}
         title="Список постов"
         removePost={removePost}
+        filter={filter}
+        setFilter={setFilter}
       />
 
     </div>

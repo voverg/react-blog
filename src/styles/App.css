@@ -24,7 +24,24 @@ h1, h2, h3, h4, h5, h6 {
 #root {
   max-width: 700px;
   margin: auto;
+}
+
+.post-header {
   padding: 10px;
+  background-color: var(--blue);
+  border-radius: var(--radius);
+}
+.post-header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-item {
+  width: 33.33%;
+}
+.post-header__title {
+  color: #fff;
+  text-align: center;
 }
 
 .add-btn {
@@ -34,13 +51,23 @@ h1, h2, h3, h4, h5, h6 {
 .post-form {
   padding: 10px 0;
 }
+.post-form__title {
+  padding-bottom: 20px;
+  text-align: center;
+}
 
 .post-list {
   padding: 10px 0;
 }
 
 .post-list__header {
-  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-list__title {
+  padding: 10px 0;
   text-align: center;
 }
 
