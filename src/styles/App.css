@@ -22,8 +22,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #777;
 }
 
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .App {
-  max-width: 700px;
+  max-width: 900px;
   min-height: 100vh;
   margin: auto;
   display: flex;
@@ -31,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 10px;
   background-color: var(--blue);
   border-radius: var(--radius);
@@ -42,6 +51,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-item {
   width: 33.33%;
+}
+.nav-item button {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.nav-item button:hover {
+  background-color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 .post-header__title {
   color: #fff;
@@ -60,9 +77,11 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+
+
 .post-list {
   flex-grow: 1;
-  padding: 10px 0;
+  padding: 60px 0 10px;
 }
 
 .post-list__loader {
@@ -98,14 +117,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .post-enter-active {
   transform: translateX(0);
-  transition: all 300ms ease-out;
+  transition: all 300ms ease-in;
 }
 .post-exit {
   opacity: 1;
 }
 .post-exit-active {
   opacity: 0;
-  transition: opacity 100ms ease-out;
+  transition: opacity 300ms ease-in;
 }
 
 .post__btns {
@@ -131,4 +150,23 @@ h1, h2, h3, h4, h5, h6 {
 .post-footer p a:hover {
   color: var(--hover-color);
   text-shadow: 0 0 2px var(--hover-color), 0 0 10px var(--hover-color);
+}
+
+
+/* ------------- Responsive -------------- */
+@media (max-width: 900px) {
+  .post-list {
+    padding: 60px 10px 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .post {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .post button {
+    margin-top: 10px;
+  }
 }

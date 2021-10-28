@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import Post from './Post.jsx';
 import PostSelect from './PostSelect.jsx';
@@ -28,7 +25,7 @@ const PostList = ({posts, title, removePost, filter, setFilter}) => {
         {posts.map((post, index) =>
           <CSSTransition
             key={post.id}
-            timeout={500}
+            timeout={100}
             classNames="post"
           >
             <Post number={index+1} post={post} removePost={removePost} />

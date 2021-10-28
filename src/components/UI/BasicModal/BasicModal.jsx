@@ -20,6 +20,7 @@ const BasicModal = ({children, visible, setVisible}) => {
       >
         {children}
       </div>
+
     </div>
   );
 };
