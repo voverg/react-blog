@@ -42,7 +42,7 @@ const App = () => {
   return (
     <div className="App">
       <BasicModal visible={modal} setVisible={setModal}>
-        <PostForm createPost={createPost} />
+        <PostForm createPost={createPost} visible={modal} />
       </BasicModal>
 
       <PostHeader

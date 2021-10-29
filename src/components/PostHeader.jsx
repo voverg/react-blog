@@ -7,8 +7,7 @@ const PostHeader = ({filter, setFilter, setModal}) => {
 
   return (
     <div className="post-header">
-      <div className="container">
-        <div className="post-header__nav">
+        <div className="post-header__nav container">
           <div className="nav-item">
             <BasicButton
               onClick={() => setModal(true)}
@@ -29,7 +28,6 @@ const PostHeader = ({filter, setFilter, setModal}) => {
             />
           </div>
         </div>
-      </div>
 
 
     </div>

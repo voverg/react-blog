@@ -12,7 +12,7 @@ const PostList = ({posts, title, removePost, filter, setFilter}) => {
   }
 
   return (
-    <div className="post-list">
+    <div className="post-list container">
       <div className="post-list__header">
         <h2 className="post-list__title">{title}</h2>
         <PostSelect

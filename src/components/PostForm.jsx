@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 
 import BasicButton from './UI/BasicButton';
 import BasicInput from './UI/BasicInput';
 
-const PostForm = ({createPost}) => {
+const PostForm = ({createPost, visible}) => {
   const [post, setPost] = useState({title: '', body: ''});
+
+  // Очищаем поля формы, когда она становится невидимой
+  useMemo(() => {
+    if (!visible) {
+      setPost({...post, title: '', body: ''});
+    }
+  }, [visible])
+
 
   const addNewPost = (event) => {
     event.preventDefault();
@@ -18,8 +26,8 @@ const PostForm = ({createPost}) => {
     // Добавляем новый пост в массив с постами
     createPost(newPost);
 
-    // Очистка полей формы
-    setPost({...post, title: '', body: ''});
+    // Очистка полей формы после создания поста
+    // setPost({...post, title: '', body: ''});
   };
 
   return (
