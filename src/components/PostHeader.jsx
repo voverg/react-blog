@@ -2,6 +2,7 @@ import React from 'react';
 
 import BasicButton from './UI/BasicButton';
 import PostSearch from './PostSearch.jsx';
+import {Navbar} from './UI';
 
 const PostHeader = ({filter, setFilter, setModal}) => {
 
@@ -17,7 +18,8 @@ const PostHeader = ({filter, setFilter, setModal}) => {
           </div>
 
           <div className="nav-item">
-            <h1 className="post-header__title">Блог</h1>
+            <Navbar />
+            {/*<h1 className="post-header__title">Блог</h1>*/}
           </div>
 
           <div className="nav-item">
@@ -28,6 +30,8 @@ const PostHeader = ({filter, setFilter, setModal}) => {
             />
           </div>
         </div>
+
+
 
     </div>
   );

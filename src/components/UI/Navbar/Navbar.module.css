@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  /*width: 100%;*/
+  background-color: var(--blue);
+  /*padding: 10px;*/
+}
+.navbar__link {
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 5px;
+  color: #fff;
+  transition: .3s;
+}
+.navbar__link:hover {
+  color: var(--orange);
+  /*text-shadow: 0 0 2px var(--orange), 0 0 10px var(--orange);*/
+}
+
+@media (max-width: 720px) {
+  .navbar__link {
+    margin-left: 5px;
+  }
+}

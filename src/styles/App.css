@@ -29,22 +29,31 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-.App {
+/* ----------- Pages ----------------- */
+.posts, .about {
   min-height: 100vh;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
 }
 
 /*--------------- Header --------------*/
-.post-header {
+.post-header__wrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  min-height: 60px;
+}
+.post-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 10px;
   background-color: var(--blue);
-  border-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 .post-header__nav {
   display: flex;
@@ -65,6 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--orange);
 }
 .post-header__title {
+  /*flex-grow: 1;*/
   color: #fff;
   text-align: center;
 }
@@ -94,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 /*----------------- Post list --------------*/
 .post-list {
   flex-grow: 1;
-  padding: 60px 0 10px;
+  padding: 60px 0;
 }
 
 .post-list__loader {
@@ -151,6 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ------------------------ Footer ---------------------- */
 .post-footer {
+  width: 100%;
   background-color: var(--blue);
 }
 .post-footer p {

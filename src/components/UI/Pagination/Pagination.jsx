@@ -15,7 +15,7 @@ const Pagination = ({totalPages, page, changePage, ...props}) => {
         <BasicButton
           key={pageNumber}
           className={
-            pageNumber == page
+            pageNumber === page
               ? `${classes.pagination__btn} ${classes.active}`
               : classes.pagination__btn
             }
