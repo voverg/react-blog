@@ -13,7 +13,7 @@ const PostForm = ({createPost, visible}) => {
     }
   }, [visible])
 
-
+  // Добавить новый пост
   const addNewPost = (event) => {
     event.preventDefault();
     if (!post.title || !post.body) return;
@@ -45,7 +45,9 @@ const PostForm = ({createPost, visible}) => {
         value={post.body}
         onChange={ event => setPost({...post, body: event.target.value}) }
       />
-      <BasicButton onClick={addNewPost}>Добавить пост</BasicButton>
+      <div className="post-form__btns">
+        <BasicButton onClick={addNewPost}>Добавить пост</BasicButton>
+      </div>
     </form>
   );
 };

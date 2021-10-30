@@ -4,3 +4,13 @@ export const getPageCount = (totalCount, limit) => {
 
   return pageCount;
 }
+
+export const getPageArray = (totalPages) => {
+  let pagesArray = [];
+
+  for (let i = 0; i < totalPages; i++) {
+    pagesArray.push(i + 1);
+  }
+
+  return pagesArray;
+}

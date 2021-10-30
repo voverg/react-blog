@@ -1,17 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-import PostHeader from './components/PostHeader.jsx';
-import PostForm from './components/PostForm.jsx';
-import PostList from './components/PostList.jsx';
-import PostFooter from './components/PostFooter.jsx';
+import {PostHeader, PostForm, PostList, PostFooter} from './components';
+import {BasicModal, Loader} from './components/UI';
 
-import BasicModal from './components/UI/BasicModal';
-import Loader from './components/UI/Loader';
-
-import PostService from './API/PostService.js';
-import {getPageCount} from './utils/pages.js';
-import {usePosts} from './hooks/usePosts.js';
-import {useFetching} from './hooks/useFetching.js';
+import PostService from './API';
+import {getPageCount, getPageArray} from './utils';
+import {useFetching, usePosts} from './hooks';
 
 import './styles/App.css';
 
@@ -24,11 +18,10 @@ const App = () => {
   const [page, setPage] = useState(1);
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
-  let pagesArray = [];
-  for (let i = 0; i < totalPages; i++) {
-    pagesArray.push(i + 1);
-  }
+  // Получаем кол-во выводимых страниц
+  const pagesArray = getPageArray(totalPages);
 
+  // Получаем данные от запроса по API
   const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
     const response = await PostService.getAll(limit, page);
     setPosts(response.data);

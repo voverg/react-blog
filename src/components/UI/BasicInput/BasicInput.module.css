@@ -5,3 +5,8 @@
   border: 1px solid var(--blue);
   border-radius: var(--radius);
 }
+
+.basicInput:focus {
+  outline: none;
+  box-shadow: 0 0 3px var(--blue);
+}
