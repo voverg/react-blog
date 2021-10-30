@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.pagination__btn {
+  min-width: 30px;
+  margin-right: 10px;
+}
+.pagination__btn.active {
+  /*cursor: default;*/
+  pointer-events: none;
+  background-color: var(--blue);
+  color: #fff;
+}

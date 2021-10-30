@@ -29,7 +29,6 @@ const PostHeader = ({filter, setFilter, setModal}) => {
           </div>
         </div>
 
-
     </div>
   );
 };

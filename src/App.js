@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
 import {PostHeader, PostForm, PostList, PostFooter} from './components';
-import {BasicModal, Loader} from './components/UI';
+import {BasicModal, Loader, BasicButton, Pagination} from './components/UI';
 
 import PostService from './API';
-import {getPageCount, getPageArray} from './utils';
+import {getPageCount} from './utils';
 import {useFetching, usePosts} from './hooks';
 
 import './styles/App.css';
@@ -18,11 +18,9 @@ const App = () => {
   const [page, setPage] = useState(1);
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
-  // Получаем кол-во выводимых страниц
-  const pagesArray = getPageArray(totalPages);
-
   // Получаем данные от запроса по API
   const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
+    // console.log('limit, page: ', limit, page);
     const response = await PostService.getAll(limit, page);
     setPosts(response.data);
     const totalCount = response.headers['x-total-count'];
@@ -32,7 +30,7 @@ const App = () => {
   // Выводим посты при загрузке страницы
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [page]);
 
   // Принимает новый созданный пост. Пересоздаёт массив с добавленным новым постом.
   const createPost = (newPost) => {
@@ -43,6 +41,13 @@ const App = () => {
   // Принимает пост. Пересоздаёт массив с удалённым постом.
   const removePost = (post) => {
     setPosts(posts.filter(item => item.id !== post.id));
+  }
+
+  // Изменение номера страницы
+  const changePage = (pageNumber) => {
+    setPage(pageNumber);
+    // console.log('limit, page: ', limit, page);
+    // fetchPosts(limit, page);
   }
 
   return (
@@ -71,6 +76,13 @@ const App = () => {
             setFilter={setFilter}
           />
       }
+
+      <Pagination
+        className="container"
+        totalPages={totalPages}
+        page={page}
+        changePage={changePage}
+      />
 
       <PostFooter />
 

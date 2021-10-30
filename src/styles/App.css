@@ -125,6 +125,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius);
   box-shadow: 0 0 3px var(--blue);
 }
+.post__content {
+  padding-right: 10px;
+}
 
 .post-enter {
   transform: translateX(-300px);
@@ -183,5 +186,11 @@ h1, h2, h3, h4, h5, h6 {
   .post__btns button {
     margin-top: 10px;
     padding: 10px 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pagination__btn {
+    margin-right: 5px;
   }
 }
