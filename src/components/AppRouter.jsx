@@ -1,28 +1,23 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import {About, Posts, Error, PostIdPage} from '../pages';
+import {About, Posts, ErrorPage, PostIdPage} from '../pages';
+import {routes} from '../router';
 
 const AppRouter = (props) => {
 
   return (
     <Switch>
-      <Route exact path="/">
-        <About />
-      </Route>
-      <Route exact path="/posts">
-        <Posts />
-      </Route>
-      <Route exact path="/posts/:id">
-        <PostIdPage />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/error">
-        <Error />
-      </Route>
-      <Redirect to="/Error" />
+      {routes.map(route =>
+        <Route
+          key={route.path}
+          path={route.path}
+          component={route.component}
+          exact={route.exact}
+        />
+      )}
+
+      <Redirect to="/error" />
     </Switch>
   );
 };
