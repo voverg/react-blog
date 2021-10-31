@@ -48,6 +48,11 @@ h1 {
   margin: auto;
 }
 
+.about__list {
+  list-style: inside;
+  padding: 10px 0;
+}
+
 /*--------------- Header --------------*/
 .post-header__wrapper {
   position: fixed;
@@ -218,6 +223,10 @@ h1 {
 
   .post-list {
     padding: 100px 10px 10px;
+  }
+
+  .about.post-list {
+    padding: 60px 10px 10px;
   }
 
   .post {

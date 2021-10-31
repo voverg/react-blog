@@ -14,6 +14,17 @@ const About = (props) => {
 
       <div className="about post-list container">
         <h2 className="post-list__title">Это учебный проект, созданный на React.</h2>
+        <h3 className="about__title">Здесь вы можете:</h3>
+        <ul className="about__list">
+          <li className="about__list-item">Смотреть списко постов</li>
+          <li className="about__list-item">Смотреть содержание каждого поста</li>
+          <li className="about__list-item">Смотреть комментарии к посту</li>
+          <li className="about__list-item">Сортировать список постов по названию, либо описанию</li>
+          <li className="about__list-item">Осуществлять поиск по названию поста</li>
+          <li className="about__list-item">Добавлять пост</li>
+          <li className="about__list-item">Удалять пост</li>
+          <li className="about__list-item">Сайт адаптирован для мобильных устройств</li>
+        </ul>
       </div>
 
       <PostFooter />
