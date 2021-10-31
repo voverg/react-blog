@@ -1,11 +1,23 @@
 import React from 'react';
 
+import {PostFooter} from '../components';
+import {BasicHeader, Navbar} from '../components/UI';
+
 const Error = (props) => {
 
   return (
-    <div className="error container">
-      <h1>Такой страницы не существует!</h1>
-    </div>
+    <React.Fragment>
+      <BasicHeader>
+        <h1 className="post-header__title">404</h1>
+        <Navbar />
+      </BasicHeader>
+
+      <div className="error post-list container">
+        <h2 className="post-list__title">Такой страницы не существует!</h2>
+      </div>
+
+      <PostFooter />
+    </React.Fragment>
   );
 };
 

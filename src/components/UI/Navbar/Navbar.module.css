@@ -8,7 +8,7 @@
 .navbar__link {
   text-decoration: none;
   margin-left: 20px;
-  padding: 5px;
+  padding: 5px 0;
   color: #fff;
   transition: .3s;
 }
@@ -18,7 +18,11 @@
 }
 
 @media (max-width: 720px) {
+  .navbar {
+    justify-content: flex-start;
+  }
   .navbar__link {
-    margin-left: 5px;
+    margin-left: 0;
+    margin-right: 20px;
   }
 }

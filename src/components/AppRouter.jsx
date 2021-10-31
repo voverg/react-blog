@@ -7,6 +7,9 @@ const AppRouter = (props) => {
 
   return (
     <Switch>
+      <Route exact path="/">
+        <About />
+      </Route>
       <Route path="/posts">
         <Posts />
       </Route>

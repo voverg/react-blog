@@ -11,10 +11,6 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <BasicHeader>
-          <Navbar />
-        </BasicHeader>
-
         <AppRouter />
       </BrowserRouter>
     </div>
