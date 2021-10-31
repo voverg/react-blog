@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import {About, Posts, Error} from '../pages';
+import {About, Posts, Error, PostIdPage} from '../pages';
 
 const AppRouter = (props) => {
 
@@ -10,8 +10,11 @@ const AppRouter = (props) => {
       <Route exact path="/">
         <About />
       </Route>
-      <Route path="/posts">
+      <Route exact path="/posts">
         <Posts />
+      </Route>
+      <Route exact path="/posts/:id">
+        <PostIdPage />
       </Route>
       <Route path="/about">
         <About />

@@ -159,6 +159,10 @@ h1 {
 }
 .post__content {
   padding-right: 10px;
+  cursor: pointer;
+}
+.post__content:hover .post__title {
+  color: var(--orange);
 }
 
 .post-enter {

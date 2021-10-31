@@ -21,7 +21,7 @@ const About = (props) => {
         <h3 className="">Здесь вы можете:</h3>
         <ul className="about__list">
           <li className="about__list-item">Смотреть списко постов</li>
-          <li className="about__list-item">Смотреть содержание каждого поста</li>
+          <li className="about__list-item">Смотреть содержимое каждого поста по клику на него</li>
           <li className="about__list-item">Смотреть комментарии к посту</li>
           <li className="about__list-item">Сортировать список постов по названию, либо описанию</li>
           <li className="about__list-item">Осуществлять поиск по названию поста</li>
