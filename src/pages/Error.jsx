@@ -7,9 +7,13 @@ const Error = (props) => {
 
   return (
     <React.Fragment>
-      <BasicHeader>
-        <h1 className="post-header__title">404</h1>
-        <Navbar />
+      <BasicHeader  className="about__nav">
+        <div className="nav-item container">
+          <h1 className="about__title">404</h1>
+        </div>
+        <div className="nav-item container">
+          <Navbar />
+        </div>
       </BasicHeader>
 
       <div className="error post-list container">
