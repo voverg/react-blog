@@ -48,6 +48,13 @@ h1 {
   margin: auto;
 }
 
+.about__nav {
+  /*padding: 0 20px;*/
+}
+.about__title {
+  color: #fff;
+  text-align: start;
+}
 .about__list {
   list-style: inside;
   padding: 10px 0;
@@ -204,6 +211,13 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  .about__nav {
+    padding: 0 20px 0 10px;
+  }
+  .about__title {
+    text-align: end;
+  }
+
   .post-header__nav {
     flex-wrap: wrap;
   }

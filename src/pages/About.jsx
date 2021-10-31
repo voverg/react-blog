@@ -7,14 +7,18 @@ const About = (props) => {
 
   return (
     <React.Fragment>
-      <BasicHeader>
-        <Navbar />
-        <h1 className="post-header__title">О блоге</h1>
+      <BasicHeader className="about__nav">
+        <div className="nav-item container">
+          <h1 className="about__title">О блоге</h1>
+        </div>
+        <div className="nav-item container">
+          <Navbar />
+        </div>
       </BasicHeader>
 
       <div className="about post-list container">
         <h2 className="post-list__title">Это учебный проект, созданный на React.</h2>
-        <h3 className="about__title">Здесь вы можете:</h3>
+        <h3 className="">Здесь вы можете:</h3>
         <ul className="about__list">
           <li className="about__list-item">Смотреть списко постов</li>
           <li className="about__list-item">Смотреть содержание каждого поста</li>
