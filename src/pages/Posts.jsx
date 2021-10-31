@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import {PostHeader, PostForm, PostList, PostFooter} from '../components';
 import {BasicModal, Loader, BasicButton, Pagination} from '../components/UI';
@@ -6,8 +6,6 @@ import {BasicModal, Loader, BasicButton, Pagination} from '../components/UI';
 import PostService from '../API';
 import {getPageCount} from '../utils';
 import {useFetching, usePosts} from '../hooks';
-
-// import './styles/App.css';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -17,6 +15,7 @@ const Posts = () => {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
+
 
   // Получаем данные от запроса по API
   const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
@@ -31,6 +30,7 @@ const Posts = () => {
   useEffect(() => {
     fetchPosts();
   }, [page]);
+
 
   // Принимает новый созданный пост. Пересоздаёт массив с добавленным новым постом.
   const createPost = (newPost) => {

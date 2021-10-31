@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import BasicButton from './UI/BasicButton';
 import PostSearch from './PostSearch.jsx';
-import {Navbar} from './UI';
+import {Navbar, BasicButton} from './UI';
+import {AuthContext} from '../context';
 
 const PostHeader = ({filter, setFilter, setModal}) => {
+  const {isAuth, setIsAuth} = useContext(AuthContext);
+
+  const logout = () => {
+    setIsAuth(false);
+  }
 
   return (
     <div className="post-header">
@@ -14,6 +19,13 @@ const PostHeader = ({filter, setFilter, setModal}) => {
               onClick={() => setModal(true)}
             >
               Создать пост
+            </BasicButton>
+
+            <BasicButton
+              onClick={logout}
+              className="logout__btn"
+            >
+              Выйти
             </BasicButton>
           </div>
 
@@ -29,6 +41,7 @@ const PostHeader = ({filter, setFilter, setModal}) => {
               setFilter={setFilter}
             />
           </div>
+
         </div>
 
 

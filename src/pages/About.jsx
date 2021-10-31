@@ -1,19 +1,36 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {PostFooter} from '../components';
-import {BasicHeader, Navbar} from '../components/UI';
+import {BasicHeader, Navbar, BasicButton} from '../components/UI';
+import {AuthContext} from '../context';
 
 const About = (props) => {
+  const {isAuth, setIsAuth} = useContext(AuthContext);
+
+  const logout = () => {
+    setIsAuth(false);
+  }
+
 
   return (
     <React.Fragment>
       <BasicHeader className="about__nav">
-        <div className="nav-item container">
-          <h1 className="about__title">О блоге</h1>
+        <div className="container container-flex">
+          <div className="nav-item">
+            <h1 className="about__title">О блоге</h1>
+          </div>
+          <div className="nav-item">
+            <Navbar />
+          </div>
+
+          <BasicButton
+            className="logout__btn"
+            onClick={logout}
+          >
+            Выйти
+          </BasicButton>
         </div>
-        <div className="nav-item container">
-          <Navbar />
-        </div>
+
       </BasicHeader>
 
       <div className="about post-list container">

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {PostFooter} from '../components';
-import {BasicHeader, Navbar, BasicInput, BasicButton} from '../components/UI';
+import {BasicHeader, BasicInput, BasicButton} from '../components/UI';
+import {AuthContext} from '../context';
 
 const Login = (props) => {
+  const {isAuth, setIsAuth} = useContext(AuthContext);
+
+  const login = (event) => {
+    event.preventDefault();
+
+    setIsAuth(true);
+  }
 
   return (
     <React.Fragment>
@@ -15,7 +23,8 @@ const Login = (props) => {
 
       <div className="about post-list container">
         <h2 className="post-list__title">Чтобы войти, введите логин и пароль</h2>
-        <form className="login-form">
+
+        <form className="login-form" onSubmit={login}>
           <BasicInput
             type="text"
             className="post-form__input"

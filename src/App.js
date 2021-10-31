@@ -1,19 +1,25 @@
-import React, {useState, useEffect} from 'react';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import React, {useState} from 'react';
+import {BrowserRouter} from 'react-router-dom';
 
 import {AppRouter} from './components';
-import {Navbar, BasicHeader} from './components/UI';
+import {AuthContext} from './context';
 
 import './styles/App.css';
 
 const App = () => {
+  const [isAuth, setIsAuth] = useState(false);
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-    </div>
+    <AuthContext.Provider value={{
+      isAuth,
+      setIsAuth,
+    }}>
+      <div className="App">
+        <BrowserRouter>
+          <AppRouter />
+        </BrowserRouter>
+      </div>
+    </AuthContext.Provider>
   );
 }
 

@@ -35,12 +35,14 @@ const PostForm = ({createPost, visible}) => {
       <h2 className="post-form__title">Добавить новый пост</h2>
       <BasicInput
         type="text"
+        className="post-form__input"
         placeholder="Введите название поста"
         value={post.title}
         onChange={ event => setPost({...post, title: event.target.value}) }
       />
       <BasicInput
         type="text"
+        className="post-form__input"
         placeholder="Введите описание поста"
         value={post.body}
         onChange={ event => setPost({...post, body: event.target.value}) }

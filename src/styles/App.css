@@ -38,6 +38,10 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
 }
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+}
 
 /* ----------- Pages ----------------- */
 .posts, .about {
@@ -89,6 +93,7 @@ h1 {
 
 /* nav-item */
 .nav-item {
+  display: flex;
   width: 33.33%;
 }
 .nav-item button {
@@ -135,8 +140,19 @@ h1 {
 .login-form {
   width: 50%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 30px 10px;
   box-shadow: 0 0 3px var(--blue);
+}
+
+.logout__btn {
+  margin: 0 10px;
+  border: 1px solid #fff;
+  border-radius: var(--radius);
+  color: #fff;
+}
+.logout__btn:hover {
+  background-color: var(--orange);
+  border-color: var(--orange);
 }
 
 /*----------------- Post list --------------*/
@@ -255,7 +271,7 @@ h1 {
     order: 1;
   }
   .nav-item button {
-    width: 100%;
+    width: 50%;
     margin-top: 5px;
     padding: 7px 0;
   }

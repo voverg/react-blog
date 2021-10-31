@@ -1,16 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom';
 
 import {PostFooter} from '../components';
-import {BasicHeader, Navbar, Loader} from '../components/UI';
+import {BasicHeader, Navbar, Loader, BasicButton} from '../components/UI';
 
 import PostService from '../API';
 import {useFetching} from '../hooks';
+import {AuthContext} from '../context';
 
 const PostIdPage = (props) => {
   const params = useParams();
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
+  const {isAuth, setIsAuth} = useContext(AuthContext);
+
+  const logout = () => {
+    setIsAuth(false);
+  }
 
   // Получаем данные поста от запроса по API
   const [fetchPostById, isPostLoading, postError] = useFetching(async (id) => {
@@ -30,17 +36,25 @@ const PostIdPage = (props) => {
     fetchComments(params.id);
   }, []);
 
-// console.log(comments);
-
   return (
     <React.Fragment>
       <BasicHeader className="about__nav">
-        <div className="nav-item container">
-          <h1 className="about__title">Пост c ID = {params.id}</h1>
+        <div className="container container-flex">
+          <div className="nav-item">
+            <h1 className="about__title">Пост с ID = {params.id}</h1>
+          </div>
+          <div className="nav-item">
+            <Navbar />
+          </div>
+
+          <BasicButton
+            className="logout__btn"
+            onClick={logout}
+          >
+            Выйти
+          </BasicButton>
         </div>
-        <div className="nav-item container">
-          <Navbar />
-        </div>
+
       </BasicHeader>
 
       {isPostLoading
