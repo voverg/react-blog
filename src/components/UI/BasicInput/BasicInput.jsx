@@ -2,11 +2,12 @@ import React from 'react';
 
 import classes from './BasicInput.module.css';
 
-const BasicInput = (props) => {
+const BasicInput = ({className, ...props}) => {
+  const inputClassName = className ? className : '';
 
   return (
     <input
-      className={classes.basicInput}
+      className={ `${classes.basicInput} ${inputClassName}` }
       {...props}
     />
   );

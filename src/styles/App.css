@@ -117,7 +117,7 @@ h1 {
   padding-bottom: 20px;
   text-align: center;
 }
-.post-form input {
+.post-form__input {
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -125,6 +125,18 @@ h1 {
   display: flex;
   justify-content: flex-end;
   padding: 15px 0 0;
+}
+
+/* ------------ Login -------------------- */
+.login__title {
+  text-align: center;
+  color: #fff;
+}
+.login-form {
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 0 0 3px var(--blue);
 }
 
 /*----------------- Post list --------------*/
@@ -225,6 +237,10 @@ h1 {
   }
   .about__title {
     text-align: end;
+  }
+
+  .login-form {
+    width: 100%;
   }
 
   .post-header__nav {
