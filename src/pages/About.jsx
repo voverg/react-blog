@@ -9,6 +9,7 @@ const About = (props) => {
 
   const logout = () => {
     setIsAuth(false);
+    localStorage.removeItem('auth');
   }
 
 

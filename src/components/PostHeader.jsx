@@ -9,6 +9,7 @@ const PostHeader = ({filter, setFilter, setModal}) => {
 
   const logout = () => {
     setIsAuth(false);
+    localStorage.removeItem('auth');
   }
 
   return (

@@ -16,6 +16,7 @@ const PostIdPage = (props) => {
 
   const logout = () => {
     setIsAuth(false);
+    localStorage.removeItem('auth');
   }
 
   // Получаем данные поста от запроса по API

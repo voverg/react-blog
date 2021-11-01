@@ -11,6 +11,7 @@ const Login = (props) => {
     event.preventDefault();
 
     setIsAuth(true);
+    localStorage.setItem('auth', 'true');
   }
 
   return (
