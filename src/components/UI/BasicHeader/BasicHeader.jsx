@@ -7,7 +7,9 @@ const BasicHeader = ({children, ...props}) => {
 
   return (
     <div className={ `${classes.basicHeader} ${className}` }>
-      {children}
+      <div className={classes.basicHeader__container}>
+        {children}
+      </div>
     </div>
   );
 };

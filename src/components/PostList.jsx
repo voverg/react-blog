@@ -2,22 +2,29 @@ import React from 'react';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import Post from './Post.jsx';
-import PostSelect from './PostSelect.jsx';
+import {BasicSelect} from './UI';
 
 const PostList = ({posts, title, removePost, filter, setFilter}) => {
   if (!posts.length) {
     return (
-      <h2 className="post-list post-list__title">Постов не найдено</h2>
+      <div className="page__content post-list container">
+        <h2 className="page__content-title">Постов не найдено</h2>
+      </div>
     );
   }
 
   return (
-    <div className="post-list container">
+    <div className="page__content post-list container">
       <div className="post-list__header">
         <h2 className="post-list__title">{title}</h2>
-        <PostSelect
-          filter={filter}
-          setFilter={setFilter}
+        <BasicSelect
+          defaultValue="Сортировка"
+          value={filter.sort}
+          sortPosts={ selectedSort => {setFilter({...filter, sort: selectedSort})} }
+          options={[
+            {value: 'title', name: 'По названию'},
+            {value: 'body', name: 'По описанию'},
+          ]}
         />
       </div>
 

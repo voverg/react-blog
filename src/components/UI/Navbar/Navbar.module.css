@@ -1,28 +1,28 @@
 .navbar {
   display: flex;
-  justify-content: center;
-  /*width: 100%;*/
+  flex-wrap: wrap;
+  justify-content: flex-end;
   background-color: var(--blue);
-  /*padding: 10px;*/
 }
 .navbar__link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  margin-left: 20px;
-  padding: 5px 0;
+  padding: 10px;
   color: #fff;
   transition: .3s;
 }
 .navbar__link:hover {
   color: var(--orange);
-  /*text-shadow: 0 0 2px var(--orange), 0 0 10px var(--orange);*/
 }
 
-@media (max-width: 720px) {
-  .navbar {
-    justify-content: flex-start;
-  }
-  .navbar__link {
-    margin-left: 0;
-    margin-right: 20px;
-  }
+.logout__btn {
+  margin: 5px 0 5px 10px;
+  border: 1px solid #fff;
+  border-radius: var(--radius);
+  color: #fff;
+}
+.logout__btn:hover {
+  background-color: var(--orange);
+  border-color: var(--orange);
 }

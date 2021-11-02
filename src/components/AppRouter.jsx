@@ -10,7 +10,7 @@ const AppRouter = (props) => {
   const {isAuth, isLoading} = useContext(AuthContext);
 
   if (isLoading) {
-    return <Loader />
+    return <div className="post-list container"><Loader /></div>
   }
 
   return (

@@ -1,0 +1,19 @@
+.basicFooter {
+  width: 100%;
+  background-color: var(--blue);
+}
+.basicFooter p {
+  text-align: center;
+  color: #bbb;
+  font-size: 14px;
+  padding: 10px;
+}
+.basicFooter p a {
+  color: #45b29a;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+.basicFooter p a:hover {
+  color: var(--orange);
+  text-shadow: 0 0 2px var(--orange), 0 0 10px var(--orange);
+}

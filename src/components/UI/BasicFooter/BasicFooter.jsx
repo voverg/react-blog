@@ -1,12 +1,14 @@
 import React from 'react';
 
-const PostFooter = (props) => {
+import classes from './BasicFooter.module.css';
+
+const BasicFooter = (props) => {
 
   return (
-    <footer className="post-footer">
+    <footer className={classes.basicFooter}>
       <p>Created 2021 by <a href="https://github.com/voverg" target="_blank" rel="noreferrer">Voverg</a></p>
     </footer>
   );
 };
 
-export default PostFooter;
+export default BasicFooter;

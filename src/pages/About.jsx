@@ -1,41 +1,18 @@
 import React, {useContext} from 'react';
 
-import {PostFooter} from '../components';
-import {BasicHeader, Navbar, BasicButton} from '../components/UI';
-import {AuthContext} from '../context';
+import {BasicHeader, Navbar, BasicFooter} from '../components/UI';
 
 const About = (props) => {
-  const {isAuth, setIsAuth} = useContext(AuthContext);
-
-  const logout = () => {
-    setIsAuth(false);
-    localStorage.removeItem('auth');
-  }
-
 
   return (
-    <React.Fragment>
-      <BasicHeader className="about__nav">
-        <div className="container container-flex">
-          <div className="nav-item">
-            <h1 className="about__title">О блоге</h1>
-          </div>
-          <div className="nav-item">
-            <Navbar />
-          </div>
-
-          <BasicButton
-            className="logout__btn"
-            onClick={logout}
-          >
-            Выйти
-          </BasicButton>
-        </div>
-
+    <div className="page">
+      <BasicHeader>
+        <h1 className="page__header-title">О блоге</h1>
+        <Navbar />
       </BasicHeader>
 
-      <div className="about post-list container">
-        <h2 className="post-list__title">Это учебный проект, созданный на React.</h2>
+      <div className="page__content container">
+        <h2 className="page__content-title">Это учебный проект, созданный на React.</h2>
         <h3 className="">Здесь вы можете:</h3>
         <ul className="about__list">
           <li className="about__list-item">Смотреть списко постов</li>
@@ -49,8 +26,8 @@ const About = (props) => {
         </ul>
       </div>
 
-      <PostFooter />
-    </React.Fragment>
+      <BasicFooter />
+    </div>
   );
 };
 

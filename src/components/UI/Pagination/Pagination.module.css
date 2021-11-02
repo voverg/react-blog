@@ -15,3 +15,13 @@
   background-color: var(--blue);
   color: #fff;
 }
+
+@media (max-width: 380px) {
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .pagination__btn {
+    margin: 5px 5px 0 0;
+  }
+}

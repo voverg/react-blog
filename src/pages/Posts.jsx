@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext, useRef} from 'react';
 
-import {PostHeader, PostForm, PostList, PostFooter} from '../components';
-import {BasicModal, Loader, BasicButton, Pagination} from '../components/UI';
+import {PostHeader, PostForm, PostList} from '../components';
+import {BasicModal, Loader, BasicButton, Pagination, BasicFooter} from '../components/UI';
 
 import PostService from '../API';
 import {getPageCount} from '../utils';
@@ -53,7 +53,6 @@ const Posts = () => {
     fetchPosts();
   }, [page]);
 
-
   // Принимает новый созданный пост. Пересоздаёт массив с добавленным новым постом.
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -68,30 +67,26 @@ const Posts = () => {
   // Изменение номера страницы
   const changePage = (pageNumber) => {
     setPage(pageNumber);
-    // console.log('limit, page: ', limit, page);
-    // fetchPosts(limit, page);
   }
 
   return (
-    <div className="posts">
+    <div className="page">
       <BasicModal visible={modal} setVisible={setModal}>
         <PostForm createPost={createPost} visible={modal} />
       </BasicModal>
 
-      <div className="post-header__wrapper">
-        <PostHeader
-          filter={filter}
-          setFilter={setFilter}
-          setModal={setModal}
-        />
-      </div>
+      <PostHeader
+        filter={filter}
+        setFilter={setFilter}
+        setModal={setModal}
+      />
 
       {postError &&
-        <h2 className="post-list container">Произошла ошибка {postError}</h2>
+        <h2 className="page__content-title container">Произошла ошибка {postError}</h2>
       }
 
       {isPostsLoading &&
-        <div className="post-list post-list__loader"><Loader /></div>
+        <div className="post-list container"><Loader /></div>
       }
 
       <PostList
@@ -110,8 +105,7 @@ const Posts = () => {
         changePage={changePage}
       />
 
-      <PostFooter />
-
+      <BasicFooter />
     </div>
   );
 }

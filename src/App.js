@@ -24,11 +24,11 @@ const App = () => {
       setIsAuth,
       isLoading,
     }}>
-      <div className="App">
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
-      </div>
+
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+
     </AuthContext.Provider>
   );
 }

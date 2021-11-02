@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 
-import {PostFooter} from '../components';
-import {BasicHeader, BasicInput, BasicButton} from '../components/UI';
+import {BasicHeader, BasicFooter, BasicInput, BasicButton} from '../components/UI';
 import {AuthContext} from '../context';
 
 const Login = (props) => {
@@ -15,15 +14,13 @@ const Login = (props) => {
   }
 
   return (
-    <React.Fragment>
-      <BasicHeader className="about__nav">
-        <div className="nav-item container">
-          <h1 className="login__title">Авторизация</h1>
-        </div>
+    <div className="page">
+      <BasicHeader>
+        <h1 className="login__title">Авторизация</h1>
       </BasicHeader>
 
-      <div className="about post-list container">
-        <h2 className="post-list__title">Чтобы войти, введите логин и пароль</h2>
+      <div className="page__content">
+        <h2 className="page__content-title">Чтобы войти, введите логин и пароль</h2>
 
         <form className="login-form" onSubmit={login}>
           <BasicInput
@@ -43,8 +40,8 @@ const Login = (props) => {
 
       </div>
 
-      <PostFooter />
-    </React.Fragment>
+      <BasicFooter />
+    </div>
   );
 };
 
