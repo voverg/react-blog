@@ -9,7 +9,7 @@ const Post = ({number, removePost, post}) => {
 
   return (
     <div className="post">
-      <div className="post__content" onClick={() => router.push(`/posts/${id}`)}>
+      <div className="post__content" onClick={() => router.push(`/react-blog/posts/${id}`)}>
         <h3 className="post__title">{id} {title}</h3>
         <div>{body}</div>
       </div>

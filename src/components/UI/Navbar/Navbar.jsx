@@ -17,8 +17,8 @@ const Navbar = (props) => {
 
   return (
     <div className={ `${classes.navbar} ${className}` }>
-      <Link to="/posts" className={classes.navbar__link}>Посты</Link>
-      <Link to="/about" className={classes.navbar__link}>О блоге</Link>
+      <Link to="/react-blog/posts" className={classes.navbar__link}>Посты</Link>
+      <Link to="/react-blog/about" className={classes.navbar__link}>О блоге</Link>
 
       <BasicButton
         className={classes.logout__btn}

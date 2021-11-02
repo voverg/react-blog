@@ -89,8 +89,10 @@ h1 {
   color: #fff;
 }
 .login-form {
+  min-width: 300px;
   width: 50%;
-  margin: 0 auto;
+  max-width: 450px;
+  margin: 30px auto;
   padding: 30px 10px;
   box-shadow: 0 0 3px var(--blue);
 }
@@ -200,7 +202,7 @@ h1 {
     margin-top: 15px;
   }
 
-  .login-form {
+  .login-form, .post-form {
     width: 90%
   }
 }

@@ -25,7 +25,7 @@ const AppRouter = (props) => {
             exact={route.exact}
           />
         )}
-        <Redirect to="/about" />
+        <Redirect to="/react-blog/about" />
       </Switch>
       :
       <Switch>
@@ -37,7 +37,7 @@ const AppRouter = (props) => {
             exact={route.exact}
           />
         )}
-        <Redirect to="/login" />
+        <Redirect to="/react-blog/login" />
       </Switch>
 
   );
