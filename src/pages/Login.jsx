@@ -20,7 +20,7 @@ const Login = (props) => {
       </BasicHeader>
 
       <div className="page__content">
-        <h2 className="page__content-title">Чтобы войти, введите логин и пароль</h2>
+        <h2 className="page__content-title">Просто нажмите кнопку [Войти]</h2>
 
         <form className="login-form" onSubmit={login}>
           <BasicInput
