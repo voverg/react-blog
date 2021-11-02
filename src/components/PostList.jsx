@@ -4,7 +4,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import Post from './Post.jsx';
 import {BasicSelect} from './UI';
 
-const PostList = ({posts, title, removePost, filter, setFilter}) => {
+const PostList = ({posts, title, removePost, filter, setFilter, limit, setLimit}) => {
   if (!posts.length) {
     return (
       <div className="page__content post-list container">
@@ -17,15 +17,31 @@ const PostList = ({posts, title, removePost, filter, setFilter}) => {
     <div className="page__content post-list container">
       <div className="post-list__header">
         <h2 className="post-list__title">{title}</h2>
-        <BasicSelect
-          defaultValue="Сортировка"
-          value={filter.sort}
-          sortPosts={ selectedSort => {setFilter({...filter, sort: selectedSort})} }
-          options={[
-            {value: 'title', name: 'По названию'},
-            {value: 'body', name: 'По описанию'},
-          ]}
-        />
+
+        <div className="post-list__selects">
+          <BasicSelect
+            defaultValue="Кол-во постов"
+            value={limit}
+            onChange={value => setLimit(value)}
+            options={[
+              {value: 5, name: '5'},
+              {value: 10, name: '10'},
+              {value: 15, name: '15'},
+              {value: 20, name: '20'},
+              {value: -1, name: 'Все посты'},
+            ]}
+          />
+          <BasicSelect
+            defaultValue="Сортировка"
+            value={filter.sort}
+            onChange={ selectedSort => {setFilter({...filter, sort: selectedSort})} }
+            options={[
+              {value: 'title', name: 'По названию'},
+              {value: 'body', name: 'По описанию'},
+            ]}
+          />
+        </div>
+
       </div>
 
       <TransitionGroup>

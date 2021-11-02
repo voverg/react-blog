@@ -18,8 +18,9 @@ const About = (props) => {
           <li className="about__list-item">Смотреть списко постов</li>
           <li className="about__list-item">Смотреть содержимое каждого поста по клику на него</li>
           <li className="about__list-item">Смотреть комментарии к посту</li>
-          <li className="about__list-item">Сортировать список постов по названию, либо описанию</li>
           <li className="about__list-item">Осуществлять поиск по названию поста</li>
+          <li className="about__list-item">Выбирать кол-во отображаемых на странице постов</li>
+          <li className="about__list-item">Сортировать список постов по названию, либо описанию</li>
           <li className="about__list-item">Добавлять пост</li>
           <li className="about__list-item">Удалять пост</li>
           <li className="about__list-item">Сайт адаптирован для мобильных устройств</li>

@@ -2,13 +2,13 @@ import React from 'react';
 
 import classes from './BasicSelect.module.css';
 
-const BasicSelect = ({options, defaultValue, value, sortPosts}) => {
+const BasicSelect = ({options, defaultValue, value, onChange}) => {
 
   return (
     <select
       value={value}
       className={classes.basicSelect}
-      onChange={event => sortPosts(event.target.value)}
+      onChange={event => onChange(event.target.value)}
     >
       <option disabled value="">{defaultValue}</option>
       {options.map(option =>

@@ -97,7 +97,8 @@ h1 {
 
 /* -------------- About --------- */
 .about__list {
-  list-style: inside;
+  /*list-style: inside;*/
+  margin-left: 20px;
   padding: 10px 0;
 }
 
@@ -110,6 +111,15 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.post-list__title {
+  flex-shrink: 0;
+}
+
+.post-list__selects {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Post form */
@@ -171,6 +181,17 @@ h1 {
 
 /* ------------- Responsive -------------- */
 @media (max-width: 760px) {
+  .post-list__header {
+    flex-direction: column;
+  }
+  .post-list__title {
+    margin-bottom: 10px;
+  }
+  .post-list__selects {
+    width: 100%;
+    justify-content: center;
+  }
+
   .post {
     flex-direction: column;
   }

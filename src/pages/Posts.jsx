@@ -51,7 +51,7 @@ const Posts = () => {
   // Выводим посты при загрузке страницы
   useEffect(() => {
     fetchPosts();
-  }, [page]);
+  }, [page, limit]);
 
   // Принимает новый созданный пост. Пересоздаёт массив с добавленным новым постом.
   const createPost = (newPost) => {
@@ -95,6 +95,8 @@ const Posts = () => {
           removePost={removePost}
           filter={filter}
           setFilter={setFilter}
+          limit={limit}
+          setLimit={setLimit}
         />
         {/*<div ref={lastElem} style={{height: 20, background: 'yellow'}} />*/}
 
