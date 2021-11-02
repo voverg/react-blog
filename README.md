@@ -2,7 +2,7 @@
 
 You can see a demo on GitHub Pages by [this link](https://voverg.github.io/react-blog/)
 
-![react-blog](./public/react-blog.png)
+![social image](./public/social-blog.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
