@@ -2,9 +2,9 @@ import React, {useContext} from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
 import {Loader} from './UI';
-import {About, Posts, ErrorPage, PostIdPage} from '../pages';
-import {privateRoutes, publicRoutes} from '../router';
-import {AuthContext} from '../context';
+import {About, Posts, ErrorPage, PostIdPage} from 'pages';
+import {privateRoutes, publicRoutes, routeNames} from 'router';
+import {AuthContext} from 'context';
 
 const AppRouter = (props) => {
   const {isAuth, isLoading} = useContext(AuthContext);
@@ -25,7 +25,7 @@ const AppRouter = (props) => {
             exact={route.exact}
           />
         )}
-        <Redirect to="/react-blog/about" />
+        <Redirect to={routeNames.ABOUT} />
       </Switch>
       :
       <Switch>
@@ -37,7 +37,7 @@ const AppRouter = (props) => {
             exact={route.exact}
           />
         )}
-        <Redirect to="/react-blog/login" />
+        <Redirect to={routeNames.LOGIN} />
       </Switch>
 
   );

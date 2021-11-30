@@ -8,11 +8,13 @@ import './styles/App.css';
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
-    if (localStorage.getItem('auth')) {
+    if (localStorage.getItem('blogAuth')) {
       setIsAuth(true);
+      setUsername(localStorage.getItem('blogUsername'));
     }
 
     setIsLoading(false);
@@ -23,6 +25,7 @@ const App = () => {
       isAuth,
       setIsAuth,
       isLoading,
+      username,
     }}>
 
       <BrowserRouter>

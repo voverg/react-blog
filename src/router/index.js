@@ -1,12 +1,17 @@
-import {About, Posts, PostIdPage, Login} from '../pages';
+import {About, Posts, PostIdPage, Login} from 'pages';
+
+export const routeNames = {
+  ABOUT: '/react-blog/about/',
+  POSTS: '/react-blog/posts/',
+  LOGIN: '/react-blog/login/',
+}
 
 export const privateRoutes = [
-  {path: '/react-blog/', component: About, exact: true},
-  {path: '/react-blog/posts', component: Posts, exact: true},
-  {path: '/react-blog/posts/:id', component: PostIdPage, exact: true},
-  {path: '/react-blog/about', component: About, exact: false},
+  {path: routeNames.POSTS, component: Posts, exact: true},
+  {path: `${routeNames.POSTS}:id`, component: PostIdPage, exact: true},
+  {path: routeNames.ABOUT, component: About, exact: false},
 ];
 
 export const publicRoutes = [
-  {path: '/react-blog/login', component: Login, exact: true},
+  {path: routeNames.LOGIN, component: Login, exact: true},
 ];

@@ -70,6 +70,10 @@ h1 {
   padding: 10px;
 }
 
+.post__content {
+  width: 100%;
+}
+
 .add-post__btn {
   flex-shrink: 0;
   margin: 10px 0;
@@ -184,6 +188,9 @@ h1 {
 
 /* ------------- Responsive -------------- */
 @media (max-width: 760px) {
+  .page__header-title {
+    font-size: 18px;
+  }
   .post-list__header {
     flex-direction: column;
   }
