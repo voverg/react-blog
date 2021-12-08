@@ -85,19 +85,19 @@ const Posts = () => {
         <h2 className="page__content-title container">Произошла ошибка {postError}</h2>
       }
 
-      {isPostsLoading &&
+      {isPostsLoading ?
         <div className="post-list container"><Loader /></div>
-      }
-
-      <PostList
-          posts={sortedAndSearchedPosts}
-          title="Список постов"
-          removePost={removePost}
-          filter={filter}
-          setFilter={setFilter}
-          limit={limit}
-          setLimit={setLimit}
-        />
+        :
+        <PostList
+            posts={sortedAndSearchedPosts}
+            title="Список постов"
+            removePost={removePost}
+            filter={filter}
+            setFilter={setFilter}
+            limit={limit}
+            setLimit={setLimit}
+          />
+        }
         {/*<div ref={lastElem} style={{height: 20, background: 'yellow'}} />*/}
 
       <Pagination

@@ -39,6 +39,7 @@ const PostForm = ({createPost, visible}) => {
         placeholder="Введите название поста"
         value={post.title}
         onChange={ event => setPost({...post, title: event.target.value}) }
+        required={true}
       />
       <BasicInput
         type="text"
@@ -46,6 +47,7 @@ const PostForm = ({createPost, visible}) => {
         placeholder="Введите описание поста"
         value={post.body}
         onChange={ event => setPost({...post, body: event.target.value}) }
+        required={true}
       />
       <div className="post-form__btns">
         <BasicButton onClick={addNewPost}>Добавить пост</BasicButton>
